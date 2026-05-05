@@ -3,33 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A-TYPE 퍼걸러 AR 쇼룸</title>
-  <!-- 구글 모델 뷰어 스크립트 -->
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <title>A-TYPE 퍼걸러 AR</title>
   <style>
-    /* 여백 없애고 화면 꽉 차게 만들기 */
-    body { margin: 0; padding: 0; background-color: #f0f0f0; }
-    model-viewer {
-      width: 100%;
-      height: 100vh; /* 스마트폰 화면 높이 100% 사용 */
+    /* 화면 한가운데에 예쁜 버튼 만들기 */
+    body { 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh; 
+      margin: 0; 
+      background-color: #e5e5ea; 
+    }
+    .ar-button { 
+      padding: 20px 40px; 
+      font-size: 22px; 
+      font-weight: bold; 
+      background-color: #007AFF; /* 애플 스타일 파란색 */
+      color: white; 
+      text-decoration: none; 
+      border-radius: 15px; 
+      box-shadow: 0 10px 20px rgba(0,122,255,0.3);
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <!-- 아이폰용 USDZ 파일 하나만 단독으로 띄웁니다! -->
-  <model-viewer 
-    src="A-2.usdz" 
-    ar 
-    ar-modes="quick-look"
-    camera-controls
-    auto-rotate>
-    
-    <!-- AR 버튼 디자인 -->
-    <button slot="ar-button" style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); padding: 15px 30px; font-size: 18px; font-weight: bold; background-color: #007AFF; color: white; border: none; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
-      📷 주변 배경에 퍼걸러 배치하기
-    </button>
-  </model-viewer>
+  <!-- 핵심! rel="ar" 명령어가 아이폰 AR 카메라를 즉시 깨웁니다 -->
+  <a rel="ar" href="A-2.usdz" class="ar-button">
+    📷 공간에 퍼걸러 배치해보기<br>
+    <span style="font-size: 14px; font-weight: normal; margin-top: 5px; display: block;">(아이폰 전용)</span>
+  </a>
 
 </body>
 </html>
